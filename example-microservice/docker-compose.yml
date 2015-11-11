@@ -1,6 +1,6 @@
 api:
   extends:
-    file: ../compose-example/common-services.yml
+    file: ../example-compose/common-services.yml
     service: api
   volumes:
     - "./:/app"
@@ -16,10 +16,10 @@ api:
 
 db:
   extends:
-    file: ../compose-example/common-services.yml
+    file: ../example-compose/common-services.yml
     service: db
 
 cache:
   extends:
-    file: ../compose-example/common-services.yml
+    file: ../example-compose/common-services.yml
     service: cache
