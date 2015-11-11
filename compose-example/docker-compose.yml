@@ -1,0 +1,11 @@
+api:
+  extends:
+    file: common-services.yml
+    service: api
+  volumes:
+    - "./:/app"
+  environment:
+    - "DEBUG=*,-express:*"
+    - DEBUG_COLORS=true
+    - NODE_ENV=development
+  command: bash /app/startup.sh

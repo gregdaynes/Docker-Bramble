@@ -1,0 +1,5 @@
+api:
+  environment:
+    - DEBUG=0
+    - DEBUG_COLORS=false
+    - NODE_ENV=production
