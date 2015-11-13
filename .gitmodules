@@ -1,0 +1,3 @@
+[submodule "example-bramble/example-bramble-api"]
+	path = example-bramble/example-bramble-api
+	url = git@github.com:gregdaynes/Example-Bramble-API.git
