@@ -18,6 +18,12 @@ shift $(expr $OPTIND - 1 )
 NAME_PREFIX="$1"
 NODE_COUNT="$2"
 
+echo "Removing machines..."
+for (( i=${START}; i<=$NODE_COUNT; i++ ))
+do
+    ./docker-machine rm "${NAME_PREFIX}${i}"
+done
+
 ###
 # The Purge
 ###
