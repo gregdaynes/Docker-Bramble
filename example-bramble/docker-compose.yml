@@ -1,9 +1,5 @@
 api:
-  extends:
-    file: ../example-compose/common-services.yml
-    service: api
-  volumes:
-    - "./:/app"
+  image: docker pull gregdaynes/example-bramble-api
   links:
     - db
     - cache
@@ -12,14 +8,14 @@ api:
     - DEBUG_COLORS=true
     - NODE_ENV=development
     - PORT=3000
-  command: bash /app/startup.sh
+  command: npm start
 
-# db:
-#   extends:
-#     file: ../example-compose/common-services.yml
-#     service: db
-#
-# cache:
-#   extends:
-#     file: ../example-compose/common-services.yml
-#     service: cache
+db:
+  extends:
+    file: ../example-compose/common-services.yml
+    service: db
+
+cache:
+  extends:
+    file: ../example-compose/common-services.yml
+    service: cache

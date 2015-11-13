@@ -1,3 +1,4 @@
-# api:
-#   environment:
-#     - DEBUG=0
+api:
+  environment:
+    - DEBUG=0
+    - NODE_ENV=production
