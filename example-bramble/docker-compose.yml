@@ -1,0 +1,25 @@
+api:
+  extends:
+    file: ../example-compose/common-services.yml
+    service: api
+  volumes:
+    - "./:/app"
+  links:
+    - db
+    - cache
+  environment:
+    - "DEBUG=*,-express:*"
+    - DEBUG_COLORS=true
+    - NODE_ENV=development
+    - PORT=3000
+  command: bash /app/startup.sh
+
+# db:
+#   extends:
+#     file: ../example-compose/common-services.yml
+#     service: db
+#
+# cache:
+#   extends:
+#     file: ../example-compose/common-services.yml
+#     service: cache
