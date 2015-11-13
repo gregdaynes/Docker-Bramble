@@ -1,8 +1,10 @@
 api:
-  image: docker pull gregdaynes/example-bramble-api
+  image: gregdaynes/example-bramble-api:master
   links:
     - db
     - cache
+  ports:
+    - "3000:3000"
   environment:
     - "DEBUG=*,-express:*"
     - DEBUG_COLORS=true
