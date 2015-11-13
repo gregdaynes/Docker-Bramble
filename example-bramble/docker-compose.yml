@@ -3,6 +3,7 @@ api:
   links:
     - db
     - cache
+  restart: always
   ports:
     - "3000:3000"
   environment:
@@ -10,14 +11,29 @@ api:
     - DEBUG_COLORS=true
     - NODE_ENV=development
     - PORT=3000
+  log_driver: "json-file"
+  log_opt:
+    max-size: "50k"
+    max-file: "5"
   command: npm start
 
 db:
-  extends:
-    file: ../example-compose/common-services.yml
-    service: db
+  image: hypriot/rpi-mysql
+  restart: always
+  environment:
+    MYSQL_ROOT_PASSWORD: 'root'
+    MYSQL_USER: 'user'
+    MYSQL_PASSWORD: 'password'
+    MYSQL_DATABASE: 'example'
+  log_driver: "json-file"
+  log_opt:
+    max-size: "50k"
+    max-file: "5"
 
 cache:
-  extends:
-    file: ../example-compose/common-services.yml
-    service: cache
+  image: hypriot/rpi-redis
+  restart: always
+  log_driver: "json-file"
+  log_opt:
+    max-size: "10k"
+    max-file: "5"
